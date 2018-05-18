@@ -81,6 +81,8 @@ const re2 = new RegExp('\\w+');
 console.log(re2);
 */
 
+
+
 // Prototype Method
 
 // Object.prototype
@@ -88,7 +90,7 @@ console.log(re2);
 
 // Person Constructors
 
-
+/*
 function Person(firstName,lastName, dob ) {
   this.firstName = firstName; 
   this.lastName = lastName;
@@ -96,15 +98,15 @@ function Person(firstName,lastName, dob ) {
  // console.log(this.birthday);
 
  // now the calculateAge function is common for all the objects which we are going to create so we can prototype the calculateAge function
-/*
- this.calculateAge = function(){
-   const diff = Date.now() - this.birthday.getTime();
-   //console.log(diff);
-   const ageDate = new Date(diff);
-   //console.log(ageDate);
-   return  Math.abs(ageDate.getUTCFullYear()-1970);
- }
- */
+
+//  this.calculateAge = function(){
+//    const diff = Date.now() - this.birthday.getTime();
+//    //console.log(diff);
+//    const ageDate = new Date(diff);
+//    //console.log(ageDate);
+//    return  Math.abs(ageDate.getUTCFullYear()-1970);
+//  }
+ 
 }
 
 // we can now define the prototype for the calculate age function because it is common in both dixit and sawan object
@@ -120,6 +122,57 @@ const sawan = new Person('Sawan','Kumar','06-16-1997');
 
 console.log(sawan.firstName);
 console.log(sawan.calculateAge());
+*/
+
+// Person Constructor
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+
+// greeting 
+Person.prototype.greeting = function(){
+  return `Hello there ${this.firstName} ${this.lastName}.`;
+}
+
+const person1 = new Person('john','doe');
+//console.log(person1.greeting());
+
+// customer constructor
+function Customer(firstName,lastName,phone,membership){
+  Person.call(this,firstName,lastName);
+
+  this.phone = phone;
+  this.membership =membership;
+}
+
+// Inherit the person prototype methods
+Customer.prototype = Object.create(Person.prototype);
+
+// make customer.prototype return Customer()
+
+Customer.prototype.constructor = Customer;
+
+// create customer
+
+const customer1 = new Customer('Tom','Smith','8319448718','standard');
+
+console.log(customer1);
+
+// customer greetings
+
+Customer.prototype.greeting = function(){
+  return `Hello there ${this.firstName} ${this.lastName}, welcome to our company`;
+}
+
+console.log(customer1.greeting());
+
+
+
+
+
+
+
 
 
 
