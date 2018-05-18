@@ -124,6 +124,7 @@ console.log(sawan.firstName);
 console.log(sawan.calculateAge());
 */
 
+/*
 // Person Constructor
 function Person(firstName, lastName) {
   this.firstName = firstName;
@@ -167,7 +168,30 @@ Customer.prototype.greeting = function(){
 
 console.log(customer1.greeting());
 
+*/
 
+const personPrototype = {
+  greeting: function(){
+    return `Hello there ${this.firstName} ${this.lastName}`;
+  }
+}
+const mary = Object.create(personPrototype);
+mary.firstName = 'mery';
+mary.lastName = 'smith';
+mary.age = 30;
+console.log(mary.greeting());
+
+// object create method
+
+const brad = Object.create(personPrototype,{
+  firstName: {value: 'Brad'},
+  lastName: {value:'Traversry'},
+  age: {value: 36}
+});
+
+console.log(brad);
+
+console.log(brad.greeting());
 
 
 
