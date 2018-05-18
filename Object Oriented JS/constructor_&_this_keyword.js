@@ -170,6 +170,9 @@ console.log(customer1.greeting());
 
 */
 
+// object create method 
+
+/*
 const personPrototype = {
   greeting: function(){
     return `Hello there ${this.firstName} ${this.lastName}`;
@@ -192,10 +195,24 @@ const brad = Object.create(personPrototype,{
 console.log(brad);
 
 console.log(brad.greeting());
+*/
 
+// ES-6
+class Person {
+  constructor (firstName,lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+// define a greeting function
 
+greeting() {
+  return `Hello there ${this.firstName} ${this.lastName}`;
+}
+}
 
-
+const dixit = new Person('Dixit','Bishwas');
+console.log(dixit);
+console.log(dixit.greeting());
 
 
 
