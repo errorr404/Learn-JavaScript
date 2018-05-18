@@ -32,7 +32,7 @@ const sawan = new Person('Dixit','11-26-1997');
 console.log(sawan.calculateAge());
 */
 
-
+/*
 // some extra things
 // String
 
@@ -79,3 +79,66 @@ const re1 = /\w+/;
 const re2 = new RegExp('\\w+');
 
 console.log(re2);
+*/
+
+// Prototype Method
+
+// Object.prototype
+// Person.prototype
+
+// Person Constructors
+
+
+function Person(firstName,lastName, dob ) {
+  this.firstName = firstName; 
+  this.lastName = lastName;
+  this.birthday = new Date(dob);
+ // console.log(this.birthday);
+
+ // now the calculateAge function is common for all the objects which we are going to create so we can prototype the calculateAge function
+/*
+ this.calculateAge = function(){
+   const diff = Date.now() - this.birthday.getTime();
+   //console.log(diff);
+   const ageDate = new Date(diff);
+   //console.log(ageDate);
+   return  Math.abs(ageDate.getUTCFullYear()-1970);
+ }
+ */
+}
+
+// we can now define the prototype for the calculate age function because it is common in both dixit and sawan object
+Person.prototype.calculateAge = function(){
+ const diff = Date.now() - this.birthday.getTime();
+ const ageDate = new Date(diff);
+ return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
+const dixit = new Person('Dixit','Bishwas','11-26-1997');
+
+const sawan = new Person('Sawan','Kumar','06-16-1997');
+//console.log(dixit.calculateAge());
+
+console.log(sawan.firstName);
+console.log(sawan.calculateAge());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
