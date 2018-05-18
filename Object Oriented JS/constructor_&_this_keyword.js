@@ -198,6 +198,7 @@ console.log(brad.greeting());
 */
 
 // ES-6
+/*
 class Person {
   constructor (firstName,lastName) {
     this.firstName = firstName;
@@ -214,7 +215,39 @@ const dixit = new Person('Dixit','Bishwas');
 console.log(dixit);
 console.log(dixit.greeting());
 
+*/
 
+// Sub class in ES6
+class Person {
+  constructor (firstName,lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+// define a greeting function
+
+greeting() {
+  return `Hello there ${this.firstName} ${this.lastName}`;
+}
+}
+
+class Customer extends Person {
+  constructor(firstName,lastName,phone,membership) {
+    super(firstName,lastName);
+
+    this.phone =phone;
+    this.membership =membership;
+  }
+
+static getMembershipCost(){
+  return 500;
+}
+
+}
+
+const dixit = new Customer('Dixit','Bishwas','8319448718','premium');
+console.log(dixit);
+console.log(dixit.greeting());
+console.log(Customer.getMembershipCost());
 
 
 
