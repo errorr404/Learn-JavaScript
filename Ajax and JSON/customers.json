@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Dixit Bishwas",
+    "college": "TIT BHOPAL",
+    "phone": "8878-1598-79"
+  },
+  {
+    "id": 2,
+    "name": "Sawan Bishwas",
+    "college": "TIT",
+    "phone": "8878-1598-80"
+  },
+  {
+    "id": 3,
+    "name": "Sabita Bishwas",
+    "college": "TIT Excellence",
+    "phone": "8878-1598-81"
+  }
+]
