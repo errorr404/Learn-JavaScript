@@ -6,14 +6,12 @@ document.getElementById('button3').addEventListener('click',getExternal);
 
 
 function getText(){
-  fetch('text.txt').then(function(res){
-    return res.text();
-  })
-  .then(function(data){
+  fetch('text.txt').then(res => res.text())
+  .then(data=> {
     console.log(data);
     document.getElementById('output').innerHTML = data;
   })
-  .catch(function(err){
+  .catch(err=>{
     console.log(err);
   });
 }
@@ -21,10 +19,8 @@ function getText(){
 // Get local JSON data
 
 function getJSON(){
-  fetch('posts.json').then(function(res){
-    return res.json();
-  })
-  .then(function(data){
+  fetch('posts.json').then(res => res.json())
+  .then(data=>{
     console.log(data);
     let output =``;
     data.forEach(function(post){
@@ -32,17 +28,15 @@ output += `<li>${post.title}</li>`;
     });
     document.getElementById('output').innerHTML = output;
   })
-  .catch(function(err){
+  .catch(err=>{
     console.log(err);
   });
 }
 
 // get from external API 
 function getExternal(){
-  fetch('https://api.github.com/users').then(function(res){
-    return res.json();
-  })
-  .then(function(data){
+  fetch('https://api.github.com/users').then(res =>res.json())
+  .then(data=>{
     console.log(data);
     let output =``;
     data.forEach(function(user){
@@ -50,7 +44,7 @@ output += `<li>${user.repos_url}</li>`;
     }); 
     document.getElementById('output').innerHTML = output;
   })
-  .catch(function(err){
+  .catch(err=>{
     console.log(err);
   });
 }
