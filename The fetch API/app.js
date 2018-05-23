@@ -1,6 +1,7 @@
 document.getElementById('button1').addEventListener('click',getText);
 
 document.getElementById('button2').addEventListener('click',getJSON);
+
 document.getElementById('button3').addEventListener('click',getExternal);
 
 
@@ -45,7 +46,7 @@ function getExternal(){
     console.log(data);
     let output =``;
     data.forEach(function(user){
-output += `<li>${user.login}</li>`;
+output += `<li>${user.repos_url}</li>`;
     }); 
     document.getElementById('output').innerHTML = output;
   })
