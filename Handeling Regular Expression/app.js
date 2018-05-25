@@ -61,11 +61,43 @@ re = /h*llo/i; // Matches any character 0 or more
 
 re =/gre?a?y/i;  // optional character 
 
-re ='gre?a?iy'/i; // Escape chatacter
+re =/'gre?a?iy'/i; // Escape chatacter
+
+
+// Brackets [] -- charcter sets
+
+re =/gr[ae]y/i;  // Must be an a or e;
+
+re =/[GF]ray/i;  // Must be an a or e;
+
+
+re =/[^GF]rey/i;  // Match anything except a G or F;
+
+re =/[A-Z]rey/;  // Match any uppercase letter;
+
+re =/[a-z]rey/;  // Match any lowercase letter;
+
+re =/[A-Za-z]rey/;  // Match any  letter;
+
+re =/[0-9]rey/;  // Match any digit;
+
+// Braces {} - Quantifiers
+
+re = /hel{2}o/i; // Must occur exactly {m} amount of times in this l occour times
+
+re = /hel{2,4}o/i; // betwwen 2 and 4.
+
+re = /hel{2,}o/i;  // must occour atleast {m} times
+
+// PArantheses () -Gruping
+
+re = /([0-9]x){3}/;
+
+
+
+
 // string to match
-const str ='Grar?' 
-
-
+const str ='3x3x3x';
 
 // String to match
 // const str = 'Hello World';
