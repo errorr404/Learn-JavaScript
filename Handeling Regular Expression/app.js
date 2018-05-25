@@ -91,7 +91,34 @@ re = /hel{2,}o/i;  // must occour atleast {m} times
 
 // PArantheses () -Gruping
 
-re = /([0-9]x){3}/;
+re = /([0-9]x){3}/; // 0-9x three times
+
+// Shorthand character classes
+
+re =/\w/;  //word character -- alphanumeric or _
+
+re =/\w+/;  //+ = one or more
+
+re =/\W/;  //Non word character 
+
+re =/\d/;  //match any digit
+
+re =/\d+/;  //match any digit 0 or more times
+
+re =/\D/;  //match any NON-digit
+re =/\s/;  //match whitespace char
+re =/\S/;  //match non whitespace char
+re = /\Hello\b/i;  // word boundry
+
+// Assertions
+
+re = /x(?=y)/; // Match x only if followed by y;
+
+re = /x(?!y)/; // Match x only if NOT followed by y;
+
+
+
+
 
 
 
